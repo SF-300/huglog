@@ -10,10 +10,10 @@ from weakref import WeakKeyDictionary
 
 from frozendict import frozendict
 
-from .base import NativeLogger, RecordAttr, Span, SpanDict
-from .core import spanner_contextmanager
-from .stdlib import StdLogger
-from .utils import extract_placeholders, get_span_message
+from huglog.base import NativeLogger, RecordAttr, Span, SpanDict
+from huglog.core import spanner_contextmanager
+from huglog.stdlib import StdLogger
+from huglog.utils import extract_placeholders, get_span_message
 
 
 class _MergedSpans(t.NamedTuple):

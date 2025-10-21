@@ -3,8 +3,8 @@ import typing as t
 
 from frozendict import frozendict
 
-from .base import NativeLogger, RecordAttr, Span
-from .core import BaseLoggerWrapper, spanner_contextmanager
+from huglog.base import NativeLogger, RecordAttr, Span
+from huglog.core import BaseLoggerWrapper, spanner_contextmanager
 
 type InContext = frozendict[str, t.Any]
 type InSpans = tuple[Span, ...]

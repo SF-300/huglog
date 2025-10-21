@@ -2,7 +2,7 @@ import functools
 import logging
 import re
 
-from .span import (
+from huglog.utils.span import (
     LoggerParameterNotFoundError,
     find_logger_param,
     get_span_message,

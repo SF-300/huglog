@@ -11,7 +11,7 @@ from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
 from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 
-from .core import LoggerWrapper, spanner_contextmanager
+from huglog.core import LoggerWrapper, spanner_contextmanager
 
 
 class OtelLoggingHandler(LoggingHandler):
@@ -61,9 +61,9 @@ class OtelLogger(LoggerWrapper):
     @spanner_contextmanager
     def span(
         self,
-        name: str,
-        context: t.Mapping[str, t.Any] | None = None,
-        sid: str = "",
+        name,
+        context=None,
+        sid="",
     ) -> t.Iterator["OtelLogger"]:
         cls = type(self)
         context = context or {}

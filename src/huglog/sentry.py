@@ -6,8 +6,8 @@ import sentry_sdk
 import sentry_sdk.api
 from sentry_sdk.tracing import Span
 
-from .base import LoggerLike
-from .core import LoggerWrapper, spanner_contextmanager
+from huglog.base import LoggerLike
+from huglog.core import LoggerWrapper, spanner_contextmanager
 
 
 # NOTE: Sentry is already integrated with python logging, so there is no need to explicitly send exceptions

@@ -5,8 +5,8 @@ from datetime import datetime
 from logfmter import Logfmter
 from logfmter.formatter import RESERVED
 
-from ..base import RecordAttr
-from .utils import ensure_spans_denormalized
+from huglog.base import RecordAttr
+from huglog.output.utils import ensure_spans_denormalized
 
 
 class SpanAwareLogFmtFormatter(Logfmter):

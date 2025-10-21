@@ -3,7 +3,7 @@ import inspect
 import typing as t
 import warnings
 
-from ..base import LoggerLike, Span
+from huglog.base import LoggerLike, Span
 
 LOGGER_PARAM_NAME = "logger"
 LOGGER_PARAM_TYPE = LoggerLike
@@ -67,7 +67,8 @@ def find_logger_param(sig: inspect.Signature) -> inspect.Parameter:
 
 def get_span_message(span: Span) -> str:
     try:
-        return span.name % span.context
+        # return span.name % span.context
+        return span.name.format(**span.context)
     except (KeyError, TypeError, ValueError, Exception):
         warnings.warn(f"Failed to format span name: {span}")
         return span.name

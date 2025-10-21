@@ -2,9 +2,9 @@ import contextlib
 import inspect
 import typing as t
 
-from .base import Level, LoggerLike
-from .utils import find_logger_param
-from .utils.span import LoggerParameterNotFoundError
+from huglog.base import Level, LoggerLike
+from huglog.utils import find_logger_param
+from huglog.utils.span import LoggerParameterNotFoundError
 
 
 def get_logger_from_params[**P](

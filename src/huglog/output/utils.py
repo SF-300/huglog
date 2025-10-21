@@ -1,7 +1,7 @@
 import logging
 import typing as t
 
-from ..base import RecordAttr, SpanDict
+from huglog.base import RecordAttr, SpanDict
 
 
 # NOTE: This function should be called from handler and not from filter because ambient context is filter itself

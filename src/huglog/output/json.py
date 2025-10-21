@@ -3,7 +3,7 @@ import logging
 from boltons.tbutils import ExceptionInfo
 from pythonjsonlogger.json import JsonFormatter
 
-from .utils import ensure_spans_denormalized
+from huglog.output.utils import ensure_spans_denormalized
 
 
 class SpanAwareJsonFormatter(JsonFormatter):

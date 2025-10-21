@@ -13,9 +13,15 @@ class RecordAttr(StrEnum):
     SPANS_MESSAGES = "huglog_spans_messages"
 
 
+class CustomSpanMsgMarker(str):
+    def __new__(cls, value: t.LiteralString, *args, **kwargs):
+        return super().__new__(cls, value)
+
+
 type LevelName = t.Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 type Level = LevelName | int
-type Msg = t.LiteralString
+type LogMsg = t.LiteralString
+type SpanMsg = t.LiteralString | CustomSpanMsgMarker
 type ExcInfo = BaseException
 type InContext = t.Mapping[str, t.Any]
 type NativeLogger = logging.Logger | logging.LoggerAdapter
@@ -40,7 +46,7 @@ class LoggerLike(t.Protocol):
     def log(
         self,
         level: Level,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: ExcInfo = ...,
@@ -49,7 +55,7 @@ class LoggerLike(t.Protocol):
 
     def debug(
         self,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: Exception = ...,
@@ -58,7 +64,7 @@ class LoggerLike(t.Protocol):
 
     def info(
         self,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: Exception = ...,
@@ -67,7 +73,7 @@ class LoggerLike(t.Protocol):
 
     def warn(
         self,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: Exception = ...,
@@ -76,7 +82,7 @@ class LoggerLike(t.Protocol):
 
     def error(
         self,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: Exception = ...,
@@ -85,7 +91,7 @@ class LoggerLike(t.Protocol):
 
     def critical(
         self,
-        msg: Msg,
+        msg: LogMsg,
         context: InContext = ...,
         /,
         exc_info: Exception = ...,
@@ -94,7 +100,7 @@ class LoggerLike(t.Protocol):
 
     def span(
         self,
-        msg: Msg,
+        msg: SpanMsg,
         context: InContext = ...,
         /,
         sid: str = ...,

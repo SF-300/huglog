@@ -5,8 +5,8 @@ import logging
 import typing as t
 import unittest.mock
 
-from .base import LoggerLike, SpanLoggerLike
-from .utils import run_with_logger_substituted
+from huglog.base import LoggerLike, SpanLoggerLike
+from huglog.utils import run_with_logger_substituted
 
 
 class BaseLoggerWrapper(LoggerLike, t.Protocol):

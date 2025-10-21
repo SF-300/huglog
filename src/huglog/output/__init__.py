@@ -1,4 +1,4 @@
-from .utils import ensure_spans_denormalized
+from huglog.output.utils import ensure_spans_denormalized
 
 __all__ = [
     "ensure_spans_denormalized",
@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 try:
-    from .rich import SpanAwareRichHandler
+    from huglog.output.rich import SpanAwareRichHandler
 except ImportError:
 
     class SpanAwareRichHandler:  # noqa: N802
@@ -20,7 +20,7 @@ except ImportError:
 
 
 try:
-    from .logfmt import SpanAwareLogFmtFormatter
+    from huglog.output.logfmt import SpanAwareLogFmtFormatter
 except ImportError:
 
     class SpanAwareLogFmtFormatter:  # noqa: N802
@@ -32,7 +32,7 @@ except ImportError:
 
 
 try:
-    from .json import SpanAwareJsonFormatter
+    from huglog.output.json import SpanAwareJsonFormatter
 except ImportError:
 
     class SpanAwareJsonFormatter:  # noqa: N802
